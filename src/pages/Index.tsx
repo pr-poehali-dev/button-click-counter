@@ -59,22 +59,10 @@ const Index = () => {
       <Card className="w-96 h-96 shadow-2xl bg-white">
         <CardContent className="p-6 h-full flex flex-col justify-between">
           
-          {/* Заголовок */}
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              Клик Счетчик
-            </h1>
-            <p className="text-sm text-gray-600">
-              Нажми только один раз
-            </p>
-          </div>
+
 
           {/* Статистика */}
           <div className="space-y-3">
-            <div className="flex items-center justify-center">
-              <Icon name="BarChart3" className="mr-2" size={20} />
-              <span className="font-semibold text-gray-700">Статистика</span>
-            </div>
             
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-500 mb-1">
@@ -139,12 +127,6 @@ const Index = () => {
             {/* Результат клика */}
             {hasClicked && (
               <div className="text-center animate-fade-in">
-                <Badge 
-                  variant="secondary" 
-                  className="text-lg px-4 py-2 bg-gradient-to-r from-red-400 to-red-500 text-white font-bold mb-2"
-                >
-                  {getClickDescription()}
-                </Badge>
                 <p className="text-sm text-gray-600">
                   Ты {userClickNumber}-й среди всех
                 </p>
