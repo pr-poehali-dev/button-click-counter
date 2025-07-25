@@ -101,20 +101,7 @@ const Index = () => {
               )}
             </div>
 
-            <div className="grid grid-cols-2 gap-2">
-              <div className="text-center p-2 bg-gray-50 rounded">
-                <Icon name="Users" size={16} className="mx-auto mb-1 text-gray-600" />
-                <div className="text-lg font-bold text-gray-900">{totalClicks}</div>
-                <div className="text-xs text-gray-600">Участников</div>
-              </div>
-              <div className="text-center p-2 bg-gray-50 rounded">
-                <Icon name="TrendingUp" size={16} className="mx-auto mb-1 text-gray-600" />
-                <div className="text-lg font-bold text-green-600">
-                  {hasClicked ? '+1' : '0'}
-                </div>
-                <div className="text-xs text-gray-600">Твой вклад</div>
-              </div>
-            </div>
+
           </div>
 
           {/* Основная кнопка */}
