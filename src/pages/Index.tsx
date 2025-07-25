@@ -49,7 +49,6 @@ const Index = () => {
   const getClickDescription = () => {
     if (!hasClicked) return '';
     
-    if (userClickNumber === 1) return 'Первый!';
     if (userClickNumber === 2) return 'Второй!';
     if (userClickNumber === 3) return 'Третий!';
     return `${userClickNumber}-й`;
@@ -68,54 +67,6 @@ const Index = () => {
             <p className="text-sm text-gray-600">
               Нажми только один раз
             </p>
-          </div>
-
-          {/* Основная кнопка */}
-          <div className="flex flex-col items-center space-y-4">
-            {!hasClicked ? (
-              <Button
-                onClick={handleClick}
-                disabled={isAnimating}
-                className="w-64 h-16 text-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white border-0 hover:scale-105 transform rounded-lg"
-                style={{
-                  background: isAnimating 
-                    ? 'linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1)' 
-                    : ''
-                }}
-              >
-                {isAnimating ? (
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 border-3 border-white border-t-transparent rounded-full animate-spin mr-3"></div>
-                    <span>Обработка...</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center">
-                    <Icon name="MousePointer2" size={24} className="mr-3" />
-                    <span>НАЖМИ МЕНЯ</span>
-                  </div>
-                )}
-              </Button>
-            ) : (
-              <div className="w-64 h-16 rounded-lg bg-gradient-to-r from-gray-300 to-gray-400 flex items-center justify-center text-white shadow-lg">
-                <Icon name="Check" size={24} className="mr-3" />
-                <span className="text-xl font-bold">Нажато!</span>
-              </div>
-            )}
-
-            {/* Результат клика */}
-            {hasClicked && (
-              <div className="text-center animate-fade-in">
-                <Badge 
-                  variant="secondary" 
-                  className="text-lg px-4 py-2 bg-gradient-to-r from-red-400 to-red-500 text-white font-bold mb-2"
-                >
-                  {getClickDescription()}
-                </Badge>
-                <p className="text-sm text-gray-600">
-                  Ты {userClickNumber}-й среди всех
-                </p>
-              </div>
-            )}
           </div>
 
           {/* Статистика */}
@@ -164,6 +115,54 @@ const Index = () => {
                 <div className="text-xs text-gray-600">Твой вклад</div>
               </div>
             </div>
+          </div>
+
+          {/* Основная кнопка */}
+          <div className="flex flex-col items-center space-y-4">
+            {!hasClicked ? (
+              <Button
+                onClick={handleClick}
+                disabled={isAnimating}
+                className="w-64 h-16 text-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-r from-teal-400 to-teal-600 hover:from-teal-500 hover:to-teal-700 text-white border-0 hover:scale-105 transform rounded-lg"
+                style={{
+                  background: isAnimating 
+                    ? 'linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1)' 
+                    : ''
+                }}
+              >
+                {isAnimating ? (
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 border-3 border-white border-t-transparent rounded-full animate-spin mr-3"></div>
+                    <span>Обработка...</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center">
+                    <Icon name="MousePointer2" size={24} className="mr-3" />
+                    <span>НАЖМИ МЕНЯ</span>
+                  </div>
+                )}
+              </Button>
+            ) : (
+              <div className="w-64 h-16 rounded-lg bg-gradient-to-r from-gray-300 to-gray-400 flex items-center justify-center text-white shadow-lg">
+                <Icon name="Check" size={24} className="mr-3" />
+                <span className="text-xl font-bold">Нажато!</span>
+              </div>
+            )}
+
+            {/* Результат клика */}
+            {hasClicked && (
+              <div className="text-center animate-fade-in">
+                <Badge 
+                  variant="secondary" 
+                  className="text-lg px-4 py-2 bg-gradient-to-r from-red-400 to-red-500 text-white font-bold mb-2"
+                >
+                  {getClickDescription()}
+                </Badge>
+                <p className="text-sm text-gray-600">
+                  Ты {userClickNumber}-й среди всех
+                </p>
+              </div>
+            )}
           </div>
 
         </CardContent>
